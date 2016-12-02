@@ -1,3 +1,5 @@
+
+
 def range(*args):
 	a = 0
 	if (len(args) == 1):
@@ -5,17 +7,15 @@ def range(*args):
 			print (a)
 			a +=1
 	elif(len(args) == 2):
-	  	b = args[0]
-	  	while(b < int(args[1])):
-  	    	print(b)
-  	    	b +=1
-  	elif(len(args) == 3):
+	  b = int(args[0])
+	  while(b < int(args[1])):
+	    print(b)
+	    b+=1
+	elif(len(args) == 3):
 	    c = args[0]
 	    while(c < int(args[1])):
 	        print(c)
 	        c+= int(args[2])
 
-range(1,20)
-range(5)
-
+range(1,100,3)
 input()
