@@ -1,5 +1,4 @@
-motto = """The Zen of Python, by Tim Peters
-
+tekst = """The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -21,29 +20,23 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 """
 
-list = []
-list = motto.split('. ')
+def zad1():
+	list = []
+	list = tekst.split()
+	a = 0
+	flaga = 0
 
-def first():
-  print('Zdania ze słowem "is": ')
-  for i in list:
-    if i.find("is") != -1:
-      print(i)
- 
-def second():
-  print('Zdania złożone z przecinkiem: ')
-  for i in list:
-    if i.find(",") !=-1:
-      print(i)
+	for i in list:
+		a += 1
+		if i.endswith(',') == True:
+		  flaga = 1
+		while(flaga == 1):
+			if i.endswith('.') == False:
+				print(list[a])
+			elif i.endswith('.') == True:
+				print(list[a])
+				flaga = 0
+			a+=1
 
-def third():
-	list1 = []
-	list1 = motto.split()
-	k = -1
-	for i in list1:
-		k+=1
-		if (i.istitle() == True):
-			list1[k] = 'Python'
-	print(list1)
-
-third()
+zad1()
+input()

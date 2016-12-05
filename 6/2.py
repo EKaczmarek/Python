@@ -1,4 +1,4 @@
-motto = """The Zen of Python, by Tim Peters
+tekst = """The Zen of Python, by Tim Peters
 
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -21,29 +21,24 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 """
 
-list = []
-list = motto.split('. ')
+print('1: ')
+print(tekst[35:44])
+print('2: ')
+print(tekst[64:])
+print('3: ')
+print(tekst[:34])
+print('4: ')
+print(tekst[::-1]) # cały napis od tyłu
+print('5: ')
+print(tekst[:34:4])
+print('6: ')
+print(tekst[-65:-28])
+#string [początek:koniec:krok]
 
-def first():
-  print('Zdania ze słowem "is": ')
-  for i in list:
-    if i.find("is") != -1:
-      print(i)
- 
-def second():
-  print('Zdania złożone z przecinkiem: ')
-  for i in list:
-    if i.find(",") !=-1:
-      print(i)
+print(tekst[tekst.find('Beautiful'):tekst.find('Complex')])
+print(tekst[:len(tekst) // 2])
+print(tekst[::int(len(tekst))**0.5])
+print(tekst[:tekst.find('.', len(tekst)//2), 1])
 
-def third():
-	list1 = []
-	list1 = motto.split()
-	k = -1
-	for i in list1:
-		k+=1
-		if (i.istitle() == True):
-			list1[k] = 'Python'
-	print(list1)
+input()
 
-third()
