@@ -22,8 +22,9 @@ Namespaces are one honking great idea -- let's do more of those!
 
 print('7: ')
 
-#string [poczÄ…tek:koniec:krok]
+#string [pocz¹tek:koniec:krok]
 print('7: ')
 print(tekst[tekst.find(', '):tekst.find('.')])
+
 input()
 

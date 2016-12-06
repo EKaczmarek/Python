@@ -34,8 +34,6 @@ print(tekst[:34:4])
 print('6: ')
 print(tekst[-65:-28])
 #string [początek:koniec:krok]
-for i in tekst:
-	print(i)
 
 input()
 

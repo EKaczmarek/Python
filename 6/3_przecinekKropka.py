@@ -1,4 +1,4 @@
-tekst = """The Zen of Python, by Tim Peters
+tekst = """The Zen of Python, by Tim Peters.
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -21,22 +21,43 @@ Namespaces are one honking great idea -- let's do more of those!
 """
 
 def zad1():
-	list = []
-	list = tekst.split()
+	flag = 0
+	napis = ' '
+	for i in tekst:
+		if i == ',':
+			flag = 1
+		elif i != ',' and i != '.' and flag == 1:
+			napis= napis.join(i)
+			print(napis)
+		elif i == '.' and flag == 1:
+			flag = 0
+			print(napis)
+
+def zad1listy():
 	a = 0
-	flaga = 0
+for i in tekst:
+	a+=1
+	if tekst[a] == ',':
+		while tekst[a] != '.':
+			a += 1
+			print(tekst[a])
 
-	for i in list:
-		a += 1
-		if i.endswith(',') == True:
-		  flaga = 1
-		while(flaga == 1):
-			if i.endswith('.') == False:
-				print(list[a])
-			elif i.endswith('.') == True:
-				print(list[a])
-				flaga = 0
-			a+=1
 
-zad1()
-input()
+def zad2():
+	lista = tekst.split()
+	a = 0
+	for i in lista:
+		a+=1
+		if i == 'is':
+		print(lista[a])
+
+
+def zad3():
+	lista = tekst.split()
+	a = 0
+	for i in lista:
+		a+=1
+		if i == 'is':
+			k = a
+			while tekst[k] != ' ':
+				k-=1
