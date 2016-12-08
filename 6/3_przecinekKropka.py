@@ -20,6 +20,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 """
 
+#Zad 1 
 def zad1():
 	flag = 0
 	napis = ' '
@@ -37,12 +38,20 @@ def zad1listy():
 	a = 0
 for i in tekst:
 	a+=1
-	if tekst[a] == ',':
+	if tekst[a] == ', ':
 		while tekst[a] != '.':
 			a += 1
 			print(tekst[a])
 
+for i in tekst.split('/n'):
+	if 'is' in line:
+		for k in line:
+			p = line[line.find(' '):line.find(' is ')]
+			if p:
+				print(p)
 
+
+# Zad 2
 def zad2():
 	lista = tekst.split()
 	a = 0
@@ -61,3 +70,16 @@ def zad3():
 			k = a
 			while tekst[k] != ' ':
 				k-=1
+
+#Zad 3 
+
+for i in tekst.split("/n"):
+	if "is" in i:
+		for k in i:
+			p = i[i.find(" "):i.find(" is ")]
+			if p:
+				print(p.split()[-1:])
+				p = " "
+				break
+	else:
+		continue
