@@ -22,50 +22,52 @@ def wyjatki_Str(dane):
 
 def apka():
 	print('Kalkulator BMI dla pan i panow')
-
+	DataBase = []
+	Dict = {}
 	a = 'T'
 	while(a != 'N'):
-		imie = input('Imie: ')
-		_imie = wyjatki_Str(imie)
+		i = input('Imie: ')
+		imie = wyjatki_Str(i)
 	
-		plec = input('Podaj plec K/M')
-		_plec = wyjatki_Str(plec)
+		p = input('Podaj plec K/M')
+		plec = wyjatki_Str(p)
 	
 		w = input('Wzrost: ')
-		waga = wyjatki_Liczby(w)
+		wzrost = wyjatki_Liczby(w)
 
 		m = input('Masa: ')
 		masa =	wyjatki_Liczby(m)
 		
-		bmi = float(masa / ((waga/100) **2))
-		if bmi < 16.5 and _plec == 'K':
+		bmi = float(masa / ((wzrost/100) **2))
+		if bmi < 16.5 and plec == 'K':
 			odp = 'Anoreksja :('
-		elif (16.5 <= bmi < 20) and _plec == 'K':
+		elif (16.5 <= bmi < 20) and plec == 'K':
 			odp = 'Niedowaga'
-		elif (20 <= bmi < 25) and _plec == 'K':
+		elif (20 <= bmi < 25) and plec == 'K':
 			odp = 'Norma'
-		elif (25 <= bmi < 30) and _plec == 'K':
+		elif (25 <= bmi < 30) and plec == 'K':
 			odp = 'Nadwaga'
-		elif bmi > 30 and _plec == 'K':
+		elif bmi > 30 and plec == 'K':
 			odp = 'Otylosc'
 		
-		elif bmi < 18.5 and _plec == 'M':
+		elif bmi < 18.5 and plec == 'M':
 			odp = 'Anoreksja :('
-		elif (18.5 <= bmi < 22.5) and _plec == 'M':
+		elif (18.5 <= bmi < 22.5) and plec == 'M':
 			odp = 'Niedowaga'
-		elif (22.5 <= bmi < 27.5) and _plec == 'M':
+		elif (22.5 <= bmi < 27.5) and plec == 'M':
 			odp = 'Norma'
-		elif (27.5 <= bmi < 32.5) and _plec == 'M':
+		elif (27.5 <= bmi < 32.5) and plec == 'M':
 			odp = 'Nadwaga'
 		else:
 			odp = 'Otylosc'
 		
-		if(_plec == 'K'):
-			p = 'kobiety'
-		elif(_plec == 'M'):
-			p = 'mezczyzny'
+		if(plec == 'K'):
+			p = 'Kobieta'
+		elif(plec == 'M'):
+			p = 'Mężczyzna'
 		
-		DataBase = {imie,w,m,plec,odp}
+		Dict = {'imie':imie, 'waga':wzrost, 'masa':masa, 'plec': p, 'Status wagi': odp }
+		DataBase.append(Dict)
 		
 		try:
 			a = input('Czy liczyc dla nastepnej osoby T -->Tak, N --> Nie')
@@ -76,4 +78,3 @@ def apka():
 		pp(DataBase)
 
 apka()
-input()
