@@ -1,5 +1,4 @@
 tekst = """The Zen of Python, by Tim Peters
-
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -21,24 +20,23 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 """
 
-print('1: ')
-print(tekst[35:44])
-print('2: ')
-print(tekst[64:])
-print('3: ')
-print(tekst[:34])
-print('4: ')
-print(tekst[::-1]) # cały napis od tyłu
-print('5: ')
-print(tekst[:34:4])
-print('6: ')
-print(tekst[-65:-28])
-#string [początek:koniec:krok]
+def zad1():
+	list = []
+	list = tekst.split()
+	a = 0
+	flaga = 0
 
-print(tekst[tekst.find('Beautiful'):tekst.find('Complex')])
-print(tekst[:len(tekst) // 2])
-print(tekst[::int(len(tekst))**0.5])
-print(tekst[:tekst.find('.', len(tekst)//2), 1])
+	for i in list:
+		a += 1
+		if i.endswith(',') == True:
+		  flaga = 1
+		while(flaga == 1):
+			if i.endswith('.') == False:
+				print(list[a])
+			elif i.endswith('.') == True:
+				print(list[a])
+				flaga = 0
+			a+=1
 
+zad1()
 input()
-

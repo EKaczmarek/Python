@@ -1,6 +1,5 @@
 import random
 
-# bład try: except:
 def gra():
 	print('Gra wisielec')
 	lista = ['lekkoatletyka','interpunkcja', 'telekomunikacja', 'penis', 'żółć', 'kolorowanka', 'antyterrorysta']

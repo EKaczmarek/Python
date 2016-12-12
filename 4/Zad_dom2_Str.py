@@ -11,8 +11,6 @@ def wyswietl(_list, _dict):
 	    else:
 	    	print((i).title())
 
-
-
 dicton = { 'voldemort': 'Sam-wiesz-kto...RUN BITCH!!RUN!',
 			'zimny': 'walkingDead',
 			'bękart' :'graTron'
