@@ -12,19 +12,9 @@ def wyj_imie():
 		else:
 			return imie
 	except ValueError:
-		tak_nie()
+		print('Podales zle imie gracza')
+		return 0
 
-def tak_nie():
-	try:
-		output = str(input('Czy chcesz grac jeszcze raz T/N?')) 
-		if output.isnumeric() == True:
-			raise ValueError('')
-		if(output == "T" or output == "N"):
-			return str(output)
-		else:
-			raise ValueError('')
-	except ValueError:
-		tak_nie()
 
 def bilans(_wygrana, tab1, tab2):
   
@@ -38,10 +28,13 @@ def bilans(_wygrana, tab1, tab2):
 
 def wynik(_wygrana):
 	if(int(_wygrana.count('first')) > int(_wygrana.count('second'))):
+		print('first')
 		return 'first'
 	elif(int(_wygrana.count('first')) < int(_wygrana.count('second'))):
+		print('second')
 		return 'second'
 	elif(int(_wygrana.count('first')) ==  int(_wygrana.count('second'))):
+		print('both')
 		return 'both'
   
 def przypisz(_tab, _Lista, _Slownik, _fise):
@@ -55,40 +48,39 @@ def przypisz(_tab, _Lista, _Slownik, _fise):
 		
 	return _tab,_Lista, _Slownik
 
-def main(): 
+def main():
 	Slownik = {}
 	tab1, tab2 = [],[]
 	wygrana,Lista1, Lista2 = [],[],[]
-	los = -1
 
 	#pierwszy gracz
 	first = wyj_imie()
+	while(first == 0):
+		first = wyj_imie()
 	#drugi gracz
 	second = wyj_imie()
+	while(second == 0):
+		second = wyj_imie()
 
-	while(True):
-		los += 1
+	n = int(input('Ile tur chcecie rozegrac?'))
+	tura = 0
+	while(tura < n):
 		tab1, Lista1, Slownik = przypisz(tab1, Lista1, Slownik, first)
 		tab2, Lista2, Slownik = przypisz(tab2, Lista2, Slownik, second)
 
 		wygrywa = ''
-		if(los == 0):
-			print(Slownik)
-		elif(los >= 1):
-			if((tak_nie() == 'T')):
-				print(Slownik)
-				continue
-			else:
-				wygrana = bilans(wygrana,tab1,tab2)
-				wygrywa = wynik(wygrana)
-				if(wygrywa == 'both'):
-					print('Remis ::)')
-				else:
-					if(wygrywa == 'first'):
-						print('Zwycięzca: %s' %first)
-					elif(wygrywa == 'second'):
-						print('Zwycięzca: %s' %second)
-
-				break		
+		print(Slownik)
+		wygrana = bilans(wygrana,tab1,tab2)
+		wygrywa = wynik(wygrana)
+		if(wygrywa == 'both'):
+			print('Remis ::)')
+		else:
+			if(wygrywa == 'first'):
+				print('Zwycięzca: %s' %first)
+			elif(wygrywa == 'second'):
+				print('Zwycięzca: %s' %second)
+				break	
+		tura += 1
+	
 
 main()
