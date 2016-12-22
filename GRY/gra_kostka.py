@@ -6,7 +6,8 @@ def rzut_kostka():
 
 def wyj_imie():
 	try:
-		imie = str(input('Podaj imie gracza'))
+		imie = ''
+		imie = (input('Podaj imie gracza'))
 		if imie.isnumeric() == True:
 			raise ValueError('')
 		else:
@@ -24,6 +25,8 @@ def bilans(_wygrana, tab1, tab2):
 		_wygrana.append('second')
 	elif(int(tab1[0] + tab1[1]) == int(tab2[0]+tab2[1])):
 		_wygrana.append('both')
+
+	print(_wygrana)
 	return _wygrana
 
 def wynik(_wygrana):
@@ -65,22 +68,24 @@ def main():
 	n = int(input('Ile tur chcecie rozegrac?'))
 	tura = 0
 	while(tura < n):
+		tura += 1
 		tab1, Lista1, Slownik = przypisz(tab1, Lista1, Slownik, first)
 		tab2, Lista2, Slownik = przypisz(tab2, Lista2, Slownik, second)
 
 		wygrywa = ''
 		print(Slownik)
 		wygrana = bilans(wygrana,tab1,tab2)
-		wygrywa = wynik(wygrana)
-		if(wygrywa == 'both'):
+		
+
+	wygrywa = wynik(wygrana)
+	if(wygrywa == 'both'):
 			print('Remis ::)')
-		else:
-			if(wygrywa == 'first'):
-				print('Zwycięzca: %s' %first)
-			elif(wygrywa == 'second'):
-				print('Zwycięzca: %s' %second)
-				break	
-		tura += 1
-	
+	else:
+		if(wygrywa == 'first'):
+			print('Zwyciezca: %s' %first)
+		elif(wygrywa == 'second'):
+			print('Zwyciezca: %s' %second)
+
 
 main()
+input()
