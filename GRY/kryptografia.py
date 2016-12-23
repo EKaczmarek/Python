@@ -38,6 +38,10 @@ def main():
 	print(bin(k))
 
 	szyfr = tekst()
-	print(zaszyfruj(szyfr, k))
+	zaszyfr = zaszyfruj(szyfr, k)
+	print('Tekst zaszyfrowany: %s' %zaszyfr)
+	
+	odszyfr = zaszyfruj(zaszyfr, k)
+	print('Tekst odszyfrowany: %s' %odszyfr)
 
 main()
