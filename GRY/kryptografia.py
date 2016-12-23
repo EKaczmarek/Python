@@ -1,4 +1,4 @@
-print(bin(256))
+import binascii
 
 def wyjatek():
 	try:
@@ -16,26 +16,20 @@ def tekst():
 			return output
 	except ValueError:
 		tekst()
-def toBinary(_list):
-	list = []
-	for i in _list:
-		list.append(bin(i))
-	return list
 
 def zaszyfruj(tekst, klucz):
 	list = []
 	[list.append(ord(c)) for c in tekst]
 
-	list = toBinary(list)
-	print(list)
-
 	listBin = []
 	for i in list:
-	  print(8 ^ 15)
-		#listBin.append((i ^ bin(klucz)))
+		listBin.append(bin(i ^ klucz))
 
-	return listBin
-
+	listzaszyfr = []
+	[listzaszyfr.append(chr(int(d, 2))) for d in listBin]
+	
+	zaszyfr = ''.join (listzaszyfr)
+	return zaszyfr
 
 def main():
 	k = -1
@@ -46,7 +40,4 @@ def main():
 	szyfr = tekst()
 	print(zaszyfruj(szyfr, k))
 
-
-
 main()
-input()
