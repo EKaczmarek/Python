@@ -6,7 +6,7 @@ slownikDwucyfr = {10: "dziesięć", 11:"jedenaście",
                   60: " sześćdziesiąt", 70:" siedemdziesiąt", 80:" osiemdziesiąt", 
                   90:" dziewięćdziesiąt"}
 slownikTrzyCyfr = {100:"sto", 200:"dwieście", 300:"trzysta", 400:"czterysta", 
-					500:"pięćset", 600:"sześćset", 700:"siedemset", 800:"osiemset"}
+					500:"pięćset", 600:"sześćset", 700:"siedemset", 800:"osiemset",900:"dziewięćset"}
                   #oprocz 11,12,13,17,18
 
 def dwuCyfr(n):
@@ -31,22 +31,52 @@ def trzyCyfr(n):
 def slownie(n):
 	liczba = ''
 	print(len(str(n)))
+	
 	if(len(str(n)) <= 3):
 		liczba = (trzyCyfr(n))
+		
 	elif((len(str(n)) > 3) and  (len(str(n)) <= 6)):
 		liczba = trzyCyfr(int(n/1000))
 		if(int(n/1000) == 1):
 			liczba += " tysiąc "
-		elif(int(n/1000) > 1 and int(n/1000) < 5):
+			liczba +=trzyCyfr(int(n%1000))
+		elif(int(str(n)[4]) > 1 and int(str(n)[4]) < 5):
 			liczba +=" tysiące "
-		elif(int(n/1000) > 4 and int(n/1000) < 999):
+			liczba +=trzyCyfr(int(n%1000))
+		elif(int(str(n)[4]) > 4):
 			liczba +=" tysięcy "
-		liczba +=trzyCyfr(int(n%1000))
+			liczba +=trzyCyfr(int(n%1000))
+			
+	elif(len(str(n)) >= 7):
+		liczba = trzyCyfr(int(n/1000000))
+		if(int(n/1000000) == 1):
+			liczba += " milion "
+			print(int(n/1000) - int(n/1000000)*1000)
+			liczba +=trzyCyfr(int(n/1000) - int(n/1000000)*1000)
+		elif(int(n/1000000) > 1 and int(n/1000000) < 5):
+			liczba +=" miliony "
+			print(int(n/1000) - int(n/1000000)*1000)
+			liczba +=trzyCyfr(int(n/1000) - int(n/1000000)*1000)
+		elif(int(n/1000000) > 4 and int(n/1000000) < 1000):
+			liczba +=" milionów "
+			print(int(n/1000) - int(n/1000000)*1000)
+			liczba +=trzyCyfr(int(int(n/1000) - int(n/1000000)*1000))
+		
+		if(int(n/1000) == 1):
+			liczba += " tysiąc "
+			liczba +=trzyCyfr(int(n%1000))
+		elif(int(str(n)[4]) > 1 and int(str(n)[4]) < 5):
+			liczba +=" tysiące "
+			liczba +=trzyCyfr(int(n%1000))
+		elif(int(str(n)[4]) > 4):
+			liczba +=" tysięcy "
+			liczba +=trzyCyfr(int(n%1000))
 	print(liczba)
 	  
 
 def main():
-	slownie(999358)
+	slownie(39942105)
 
 main()
+input()
 
