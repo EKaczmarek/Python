@@ -15,7 +15,7 @@ def dwuCyfr(n):
 	elif (str(n)[0] == "1"):
 		return ("%snaście" %slownikCyfr[n%10])
 	else:
-		return (slownikDwucyfr[int(n/10) * 10] +" " + slownikCyfr[n%10])
+		return (slownikDwucyfr[int(n/10) * 10] + " " + slownikCyfr[n%10])
 		
 def trzyCyfr(n):
 	liczba = ''
@@ -24,6 +24,7 @@ def trzyCyfr(n):
 	elif (len(str(n)) == 2):
 		liczba += (dwuCyfr(n))
 	elif (len(str(n)) == 3):
+		print(len(slownikTrzyCyfr(n)))
 		liczba += (slownikTrzyCyfr[int(n/100) * 100])
 		liczba += (dwuCyfr(int(n%100)))
 	return liczba
@@ -59,7 +60,6 @@ def slownie(n):
 			liczba +=trzyCyfr(int(n/1000) - int(n/1000000)*1000)
 		elif(int(n/1000000) > 4 and int(n/1000000) < 1000):
 			liczba +=" milionów "
-			print(int(n/1000) - int(n/1000000)*1000)
 			liczba +=trzyCyfr(int(int(n/1000) - int(n/1000000)*1000))
 		
 		if(int(n/1000) == 1):
