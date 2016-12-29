@@ -1,4 +1,3 @@
-
 def czy_pierwsza(n):
 	counter = 0;
 	for i in range(1,n):
@@ -8,14 +7,20 @@ def czy_pierwsza(n):
 		return False
 	elif(counter < 2):
 		return True
+		
+def naSlownik(lista):
+	Slownik = {}
+	for i in lista:
+		Slownik[i] = lista.count(i)
+	for i in Slownik:
+	  print("(" + str(i) + ", " + str(Slownik[i]) + ")")
 
 def rozklad(n):
 	lista = []
-	for i in range(1,n-1):
-		if(n % int(i) == 0 and czy_pierwsza(int(i)) == True):
-			if(czy_pierwsza(int(i)) == True):
+	for i in range(2,n-1):
+			while(n % int(i) == 0 and czy_pierwsza(int(i)) == True):
 				lista.append(i)
-			print(lista)
+				n = n / int(i)
+	naSlownik(lista)
 
-
-rozklad(712)
+rozklad(19999)
