@@ -23,7 +23,7 @@ def get_time(amount, what):
 		return (list[0] + list[1]/float(60) + list[2]/float(360))
 
 def flatten(list):
-	print('dupa')
+	print(list[-1:])
 
 def validate_email(email):
 	if(email[-7:] == '@com.pl'):
