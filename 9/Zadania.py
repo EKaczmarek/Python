@@ -1,4 +1,4 @@
-﻿
+
 sw_data = [
     {
         'birth_year': '19BBY',
@@ -746,45 +746,24 @@ def zad4():
 	print(maxAge)
  
  #5
-		print(i)
-
-
-def zad5():
-	newList = list(filter(lambda a: a['eye_color'] != 'unknown', sw_data))
-	eyeList = sorted(newList, key = lambda a: a['eye_color'], reverse = False)
-	
-	Eyes = []
-	people = []
-	last = (eyeList[0]['eye_color'])
-	Eyes.append(last)
-	for i in eyeList:
-		for k in i:
-			if(k == 'eye_color'):
-				if(i['eye_color'] != last):
-					Eyes.append(i['eye_color'])
-				else: 
-					last = i['eye_color'] 
-	print(Eyes)
-	people = reduce(lambda a: a['eye_color'], eyeList['eye_color'])
-
-
-		
 def zad5():
 	newList = list(filter(lambda a: a['eye_color'] != 'unknown', sw_data))
 	eyeList = sorted(newList, key = lambda a: a['eye_color'], reverse = False)
 	eyes = []
 	[eyes.append(x['eye_color']) for x in eyeList if x['eye_color'] not in eyes]
-	dictonary = {}
+	dictionary = {}
+	newList = []
 	for i in eyes:
-		a = []
-		dictonary[str(i)] = " "
-		a.append(dictonary)
-
-	print(a)
-
-
-
-
-
+		dictList = []
+		dictionary[i] = dictList
+	print(dictionary)
+	for i in eyeList:
+		for j in eyes:
+			if(i['eye_color'] == j):
+				dictList.append(i['name'])
+				dictionary[j].append(dictList)
+	for i in dictionary:
+		print(i)
+		print("\n")
 
 zad5()
