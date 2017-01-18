@@ -744,26 +744,24 @@ def zad4():
 	newList = list(filter(lambda a: a['birth_year'] != 'unknown', sw_data))
 	maxAge = max(newList, key = lambda a:(int(now.year) + float(a['birth_year'].replace('BBY',''))))
 	print(maxAge)
- 
+
  #5
 def zad5():
 	newList = list(filter(lambda a: a['eye_color'] != 'unknown', sw_data))
 	eyeList = sorted(newList, key = lambda a: a['eye_color'], reverse = False)
 	eyes = []
-	[eyes.append(x['eye_color']) for x in eyeList if x['eye_color'] not in eyes]
 	dictionary = {}
-	newList = []
-	for i in eyes:
-		dictList = []
-		dictionary[i] = dictList
-	print(dictionary)
 	for i in eyeList:
-		for j in eyes:
-			if(i['eye_color'] == j):
-				dictList.append(i['name'])
-				dictionary[j].append(dictList)
-	for i in dictionary:
-		print(i)
-		print("\n")
+			if (i['eye_color'] not in eyes):
+				eyes.append(i['eye_color'])
+				listEyes = []
+				listEyes.append(i['name'])
+				dictionary[i['eye_color']] = listEyes
+			else:
+				listEyes.append(i['name'])
+				dictionary[i['eye_color']] = listEyes
+	for j in dictionary:
+		print(j, dictionary[j])
+
 
 zad5()

@@ -1,0 +1,1 @@
+[eyes.append(x['eye_color']) for x in eyeList if x['eye_color'] not in eyes]
