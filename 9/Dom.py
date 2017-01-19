@@ -1,4 +1,4 @@
-  data = [
+data = [
   {'climate': 'arid',
     'diameter': '10465',
     'gravity': '1 standard',
@@ -650,8 +650,97 @@
   ]
 
 #1
-    def zad1(): 
-    filtered_data = list(filter(lambda x: x['rotation_period']!= 'unknown', data)
-      sorted_data = sorted(filtered_data, key = lambda a: int(a['rotation_period']), reverse = False)
-      for i in sorted_data:
-          print(i)
+def zad1(): 
+	filtered_data = list(filter(lambda x: x['rotation_period']!= 'unknown', data))
+	sorted_data = sorted(filtered_data, key = lambda a: int(a['rotation_period']), reverse = False)
+
+	#Checking
+	for i in sorted_data:
+		print(i)
+
+#2
+def zad2():
+	filter_data = list(filter(lambda w: w['surface_water'] != 'unknown', data))
+	without_water = list(filter(lambda w: float(w['surface_Water']) == 0, filter_data))
+
+	#Checking
+	for i in without_water:
+		print(i)
+
+def zad3():
+	filter_data = list(filter(lambda w: w['surface_water'] != 'unknown', data))
+	filter_period = list(filter(lambda l: l['orbital_period'] != 'unknown' and float(l['surface_water']) > 0 , filter_data))
+	max_period = max(filter_period, key = lambda a: a['orbital_period'])
+	min_period = min(filter_period, key = lambda a: a['orbital_period'])
+
+	#Checking
+	print("Max: ")
+	print(max_period)
+	print("Min: ")
+	print(min_period)
+
+def zad4():
+	filter_data = list(filter(lambda w: w['diameter'] != 'unknown', data))
+	max_size = max(filter_data, key = lambda a: float(a['diameter']))
+	min_size = min(filter_data, key = lambda a: float(a['diameter']))
+
+	#Checking
+	print("Największa planeta: ")
+	print(max_size)
+	print("Najmniejsza planeta: ")
+	print(min_size)
+
+
+def zad5():
+	filter_data = list(filter(lambda w: w['population'] != 'unknown', data))
+	max_size = max(filter_data, key = lambda a: float(a['population']))
+	dictPop = {}
+	listData = []
+	for i in filter_data:
+		flag = True
+		j = 0
+		w = 10	
+		while (flag == True):
+			if(int(i['population']) >= j and int(i['population']) < w):
+				if (w not in listData):
+					listData.append(w)
+					listPop = []
+				listPop.append(int(i['population']))
+				dictPop[w] = listPop
+				listData.append(dictPop)
+				flag = False
+				if(j == 0):
+					j = 10
+					w *= 10
+				else:
+					j *= 10
+					w *= 10
+			else:
+				if(j == 0):
+					j = 10
+					w *= 10
+				else:
+					j *= 10
+					w *= 10
+				continue
+
+	print(listData)
+
+
+def zad6():
+	filter_data = list(filter(lambda a: a['diameter'] != 'unknown' and a['orbital_period'] != '0' and a['orbital_period'] != 'unknown', data))
+	min_proportion = min(filter_data, key = lambda a: float(a['diameter'])/float(a['orbital_period']))
+	listMin = []
+	listMin.append(min_proportion)
+	for i in filter_data:                
+		if(float(i['diameter'])/float(i['orbital_period']) == 0 and i['name'] != min_proportion['name']):
+			listMin.append(i)
+			
+	#Checking
+	for i in listMin:
+		print(i)
+	for k in filter_data:
+		print(k['diameter'], k['orbital_period'])
+
+
+zad5()
