@@ -45,5 +45,5 @@ def second():
 					short.write(j)
 					short.write("\n")
 		
-first();
+first()
 second()

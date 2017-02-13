@@ -22,6 +22,7 @@ def dict(a, b):
 	
 	return dict1
 
+
 hero_200_plus = open('hero_200_plus.txt', 'w')
 hero_short = open('hero_short.txt', 'w')
 
@@ -64,3 +65,5 @@ for j in dictionary:
 		di[dictionary[j]['kolor_oczu']] = int(dictionary[j]['wzrost'])
 
 print(di)
+
+
