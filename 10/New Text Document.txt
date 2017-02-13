@@ -1,0 +1,7 @@
+"""eyes_list[i][j]['kolor oczu'] += i[j]['wzrost'] 
+
+
+if(i[j]['kolor oczu'] in eyes_list):
+				print("lol")
+			else:
+				eyes_list.append({i[j]['kolor oczu']: i[j]['wzrost']})

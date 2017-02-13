@@ -23,9 +23,9 @@ def first():
 							eyes += ''
 					height = line[end_of_eyes + 2]
 
-				list_of_dicts.append({name : 
-					{'kolor oczu':eyes ,
-					 'wzrost':  height}})
+				list_of_dicts.append({'imie': name,
+					'kolor oczu':eyes,
+					'wzrost':  height})
 				eyes = ''
 				height = ''
 				line = file.readline().split()
@@ -36,14 +36,26 @@ def first():
 def second():
 	with open('hero_200_plus.txt', 'w') as tall, open('hero_Short.txt', 'w') as short:
 		for i in list_of_dicts:
-			for j in i:
-				if(int(i[j]['wzrost']) > 200):
-					print(i[j]['wzrost'])
-					tall.write(j)
+				if(int(i['wzrost']) > 200):
+					#print(i[j]['wzrost'])
+					tall.write(i['wzrost'])
 					tall.write("\n")
 				else:
-					short.write(j)
+					tall.write(i['wzrost'])
 					short.write("\n")
-		
+
+
+def third():
+	eyes_list = list()
+	records_list = list()
+	for i in list_of_dicts:
+		if(i['kolor oczu'] not in eyes_list):
+			eyes_list.append(i['kolor oczu'])
+
+	print(eyes_list)
+
 first()
 second()
+third()
+
+
