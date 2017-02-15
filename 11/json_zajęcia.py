@@ -30,4 +30,10 @@ with open('sw_all_heros.txt', 'w') as heros:
                 heros.write('\n')
                 line = ""
     
+mylist_2 = [a['name'] for a in data if a['mass'] != 'unknown']
+my_dict = {
+           a['name']: a['mass'] for a in data if a['mass'] != 'unknown'
+}
+
+print(my_dict)
 
